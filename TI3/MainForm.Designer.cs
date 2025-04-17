@@ -68,7 +68,7 @@
 			// lblPrimeStatus
 			// 
 			lblPrimeStatus.AutoSize = true;
-			lblPrimeStatus.Location = new Point(262, 56);
+			lblPrimeStatus.Location = new Point(234, 56);
 			lblPrimeStatus.Name = "lblPrimeStatus";
 			lblPrimeStatus.Size = new Size(0, 25);
 			lblPrimeStatus.TabIndex = 3;
@@ -105,7 +105,7 @@
 			// lblSelectedG
 			// 
 			lblSelectedG.AutoSize = true;
-			lblSelectedG.Location = new Point(3, 100);
+			lblSelectedG.Location = new Point(12, 100);
 			lblSelectedG.Name = "lblSelectedG";
 			lblSelectedG.Size = new Size(202, 25);
 			lblSelectedG.TabIndex = 7;
@@ -113,7 +113,7 @@
 			// 
 			// txtSelectedG
 			// 
-			txtSelectedG.Location = new Point(3, 130);
+			txtSelectedG.Location = new Point(12, 130);
 			txtSelectedG.Name = "txtSelectedG";
 			txtSelectedG.ReadOnly = true;
 			txtSelectedG.Size = new Size(202, 31);

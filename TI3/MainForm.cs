@@ -14,7 +14,6 @@ namespace TI3
 		private ElGamal elGamal;
 		private List<int> primitiveRoots;
 		private string inputFilePath;
-		private string outputFilePath;
 		private byte[] inputFileBytes;   
 		private byte[] encryptedFileData; 
 		private byte[] decryptedFileData;
@@ -27,28 +26,6 @@ namespace TI3
 			elGamal = new ElGamal();
 		}
 
-		private void btnCheckPrime_Click(object sender, EventArgs e)
-		{
-			if (int.TryParse(txtPrimeP.Text, out int p))
-			{
-				bool isPrime = PrimeNumberGenerator.IsPrime(p);
-				if (isPrime)
-				{
-					MessageBox.Show($"{p} - простое число", "Проверка простоты", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					btnFindPrimitiveRoots.Enabled = true;
-				}
-				else
-				{
-					MessageBox.Show($"{p} - не является простым числом", "Проверка простоты", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					btnFindPrimitiveRoots.Enabled = false;
-				}
-			}
-			else
-			{
-				MessageBox.Show("Введите корректное число", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-
 		private void txtPrimeP_TextChanged(object sender, EventArgs e)
 		{
 			lblPrimeStatus.Text = "";
@@ -57,7 +34,7 @@ namespace TI3
 			if (int.TryParse(txtPrimeP.Text, out int p))
 			{
 				bool isPrime = PrimeNumberGenerator.IsPrime(p);
-				lblPrimeStatus.Text = isPrime ? $"{p} - простое число" : $"{p} - не является простым числом";
+				lblPrimeStatus.Text = isPrime ? $"простое число" : $"не является простым числом";
 				lblPrimeStatus.ForeColor = isPrime ? Color.Green : Color.Red;
 				btnFindPrimitiveRoots.Enabled = isPrime;
 			}
@@ -73,6 +50,7 @@ namespace TI3
 			if (int.TryParse(txtPrimeP.Text, out int p))
 			{
 				lstPrimitiveRoots.Items.Clear();
+				txtSelectedG.Clear();
 				primitiveRoots = PrimitiveRootFinder.FindPrimitiveRoots(p);
 				lblRoots.Text = "Кол-во корней: " + primitiveRoots.Count.ToString();
 				if (primitiveRoots.Count > 0)
